@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Fetch API 활용 -POST 메서드 (Create)</h1>
+    <!-- ee -->
+
+    <form name="frm" action="join.jsp">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" />
+      <br />
+      <label for="job">Job</label>
+      <input type="text" name="job" id="job" />
+      <br />
+      <button type="submit" onclick="createUser()">회원등록-Create</button>
+      <button type="reset">다시쓰기</button>
+    </form>
+    <hr />
+    <div id="result"></div>
+    <script src="fetch5.js"></script>
+  </body>
+</html>

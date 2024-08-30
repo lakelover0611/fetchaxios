@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ES6</h1>
+    <script>
+      // [1] 변수, 상수: var => let, const
+      // var 변수: 함수 scope
+      var num1 = 10; // 전역변수
+      document.write("num1:", num1, "<br>");
+      var num1 = 20; //재선언, 재할당 가능
+      document.write("num1:", num1, "<br>");
+      num1 = 30;
+      document.write("num1:", num1, "<br>");
+      function foo() {
+        var a = 10; //지역변수
+        document.write("a: ", a, "<br>");
+      }
+      foo();
+      //document.write(`a: `,a)
+      let num2 = 100; //let, const: block scope
+      //let num2 = 200; //재선언 불가능
+      document.write(num2);
+      num2 = 200; // 재할당 가능
+      document.write(num2);
+      if (true) {
+        var x = 9;
+        let y = 10;
+      }
+      document.write("x:", x, "<br>");
+      //document.write("y:", y, "<br>");
+      const PI = 3.14;
+      //상수 선언시 const 재할당 불가능
+      document.write("PI:", PI, "<br>");
+      //PI = 4.14;
+
+      const obj = { num: 3 };
+      document.write("obj.num: ", obj.num, "<br>");
+      //obj = { name: "홍길동" };
+      obj.num = 500;
+      document.write("obj.num: ", obj.num, "<br>");
+      //템플릿 리터럴
+      // ``(백틱)으로 변수값을 출력하고자
+      // 할때 `${변수}`
+      document.write("obj.num: ", `${obj.num}`, "<br>");
+
+      //화살표 함수
+      function foo1(x, y) {
+        return x + y;
+      }
+      const foo2 = function (x, y) {
+        return x - y;
+      };
+      const foo3 = (x, y) => {
+        //화살표 함수, 람다식
+        return x * y;
+      };
+      const foo4 = (x, y) => x / y;
+      document.write(foo1(2, 3), `<br>`); //5
+      document.write(foo2(2, 3), `<br>`); // -1
+      document.write(foo3(2, 3), `<br>`); //6
+      document.write(foo4(2, 3), `<br>`); // 0.6666
+
+      //구조분해 할당: 배열이나 객체의 속성을 분해해서 변수에 할당하는 문법
+      const person = {
+        name: `홍길동`,
+        age: 22,
+        addr: `서울`,
+      };
+      document.write(`name: ${person.name}, age: ${person.age}`); //name: 홍길동, age:22
+      const { name, age, addr } = person; // 구조분해
+      document.write(`${name},${age},${addr}`); // 홍길동, 22, 서울
+
+      //배열 구조분해 할당
+      const arr = [1, 2, 3];
+      const [a, b, c] = arr;
+      document.write("<br>", a, b, c, "<br>"); // 1,2,3
+      //일부 요소만 할당
+      const [n, m] = arr;
+      document.write(`n: ${n}, m: ${m} <br>`); // n:1, m:2
+      //spread 연산자: ... (전개 연산자 또는 나머지 연산자)
+      const [first, ...rest] = arr;
+      document.write(`first: ${first}, rest: ${rest}<br>`); //first: 1, rest: 2,3
+      let user = { name: "Alice", age: 25, city: "Seoul" };
+      const { name: nm, age: ag, city } = user; //name의 닉네임=nm, age의 닉네임=ag
+      document.write(`nm: ${nm}, ag: ${ag}, city: ${city} <br>`); //  nm:Alice, age:25, city:Seoul
+
+      //배열 매개변수 구조분해
+      function plus([q, r]) {
+        return q + r;
+      }
+      let numbers = [10, 99];
+      const result = plus(numbers);
+      document.write("result: ", result, "<br>"); //result: 109
+
+      //spread 연산자: 배열, 객체를 펼치는데 사용
+      let arr1 = [1, 2, 3, 4, 5];
+      let arr2 = [...arr1, 6, 7, 8];
+      document.write(arr2, "<br>"); //1,2,3,4,5,6,7,8
+      let newArr = [0, ...arr1, 10];
+      document.write(newArr, "<br>"); //0,1,2,3,4,5,10
+
+      const user1 = { name: "철수", height: 177 };
+      const user2 = { ...user1 }; // 객체 복사
+      document.write(JSON.stringify(user2), "<br>");
+
+      const ob1 = { a: 1, b: 2 };
+      const ob2 = { c: 3, d: 4 };
+      //객체 병합
+      const merged = { ...ob1, ...ob2 };
+      document.write(JSON.stringify(merged), "<br>"); // {"a":1,"b":2,"c":3,"d":4}
+      //객체 병합시 속성이 겹치는 경우
+      const ob3 = { ...merged, c: 5.12, d: 7.89 };
+      //덮어쓰기
+      document.write(JSON.stringify(ob3), "<br>"); //{"a":1,"b":2,"c":5.12,"d":7.89}
+      //string
+      let str1 = "Hello World";
+      let str2 = [...str1];
+      document.write(str2, str2.length); //H,e,l,l,o, ,W,o,r,l,d11
+      let str3 = str2.join("#");
+      document.write("<br>", str3); //H#e#l#l#o# #W#o#r#l#d
+    </script>
+  </body>
+</html>

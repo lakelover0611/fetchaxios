@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Fetch API 활용 -put/patch메서드 (Update)</h1>
+    <div id="findFrm">
+      수정할 회원의 ID:
+      <input type="text" name="id" id="id" />
+      <button onclick="find()">정보조회</button>
+      <!-- 정의해야함 -->
+    </div>
+    <div id="divFrm" style="display: none">
+      <!-- display:none하면 아무것도 안보여줌  -->
+      <form name="frm" action="join.jsp">
+        <!-- action=join.jsp는 html form 요소에서 사용하는 속성으로 사용자가 폼을
+        제출할때 데이터를 처리할 서버 측 파일의 url을 지정  -->
+        <form>
+        <!-- //form안에 있는 버튼은 동기적으로 submit하는 특징이 있음. 다른 버튼들은 addevent로 알려줘야 함  -->
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+        <br />
+        <label for="job">Job</label>
+        <input type="text" name="job" id="job" />
+        <br />
+        <button type="submit" onclick="updateUser()">수정하기-Update</button>
+        <button type="reset">다시쓰기</button>
+      </form>
+    </div>
+    <hr />
+    <div id="result"></div>
+    <script src="fetch6.js"></script>
+  </body>
+</html>

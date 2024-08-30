@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fetch3.html</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      #result,
+      #paging {
+        padding: 2em;
+        width: 80%;
+        margin: auto;
+        /* border: 1px solid red; */
+        text-align: center;
+      }
+      #result.table {
+        width: 90%;
+        margin: auto;
+        border-collapse: collapse;
+        
+      }
+    </style>
+  </head>
+  <body onload="getAllUser(1,10)">
+    <!-- 버튼 누르기 전에도 나오게끔 설정  -->
+    <h1>Fetch API 활용4</h1>
+    <button id="btn1" onclick="getAllUser(1,3)">
+      모든 User 정보 가져오기-reqres.in
+    </button>
+    <hr />
+    <div id="result"></div>
+    <div id="paging"></div>
+
+    <script src="fetch4.js"></script>
+  </body>
+</html>
