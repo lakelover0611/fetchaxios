@@ -9,10 +9,12 @@ const getCurrentLocation = () => {
         console.log(`Latitude: ${lat}, Longitude: ${long}`);
 
         if (lat && long) {
-          //여기서 id가 result인 곳에 위도 경도 출력하세요
+          const result = document.querySelector("#result");
+          result.innerHTML = `Latitude: ${lat}, Longitude: ${long}`;
         } else {
           showError("Location data is incomplete");
         }
+        //여기서 id가 result인 곳에 위도 경도 출력하세요
       },
       (error) => {
         showError("Geolocation error:" + error.message);
